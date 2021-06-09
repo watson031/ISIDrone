@@ -1,0 +1,6 @@
+Pour le fonctionnement de la Configuration sur l'environnement de Windows et Linux, il faudrait :
+
+- creer un dossier isidrone a l'exterieur du projet et dans ce dernier creer un autre dossier conf
+- copier le fichier config.properties asscié au ticket dans le dossier conf qui vient d'etre cree.
+- creer un environnement de Variable ISIDRONE_CONFIG_PROPERTIES = CHEMIN VERS le config properties que vous venez de creer
+- Redemarrer votre IDE build et execute.

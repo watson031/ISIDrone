@@ -1,0 +1,156 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package manager;
+
+import entities.Address;
+import entities.User;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+/**
+ * @author bndiaye
+ */
+public class MUser {
+
+    public static ArrayList<User> getAll() {
+        ArrayList<User> users = new ArrayList<>();
+        try {
+
+            MDB.connect();
+
+            String query = "SELECT  * from user where userType = 0";
+            ResultSet rs = MDB.execQuery(query);
+            while (rs.next()) {
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+        return users;
+    }
+
+    public static ArrayList<User> getAllPlusAdmins() {
+        ArrayList<User> users = new ArrayList<>();
+        try {
+
+            MDB.connect();
+
+            String query = "SELECT  * from user";
+            ResultSet rs = MDB.execQuery(query);
+            while (rs.next()) {
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+        return users;
+    }
+
+    public static ArrayList<User> getAllClients() {
+        ArrayList<User> users = new ArrayList<>();
+        try {
+
+            MDB.connect();
+            ResultSet rs;
+            String query = "SELECT id, lastName, firstName,email, userStatus from user where userType = 0";
+            PreparedStatement ps = MDB.getPS(query);
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+<<<<<<< HEAD
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+=======
+                String userStatus = rs.getString(5);
+                users.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+>>>>>>> 1031323ff555244250fd0cf2a5ff0593f2da1176
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+        return users;
+    }
+
+    public static ArrayList<User> getAllClients(String searchedValue) {
+        ArrayList<User> users = new ArrayList<>();
+        try {
+
+            MDB.connect();
+            ResultSet rs;
+            String query = "SELECT lastName, firstName,email from user where (lower(firstName) like lower(?) or lower(lastName) "
+                    + "like lower(?) or lower(email) like lower(?)) and userType = 0";
+            PreparedStatement ps = MDB.getPS(query);
+            ps.setString(1, "%" + searchedValue + "%");
+            ps.setString(2, "%" + searchedValue + "%");
+            ps.setString(3, "%" + searchedValue + "%");
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                users.add(new User(rs.getString(1), rs.getString(2), rs.getString(3)));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+        return users;
+    }
+
+    public static Integer isUserActif(int idUser, String statut) {
+        Integer affectedRow = null;
+        try {
+            MDB.connect();
+            String query1 = "UPDATE `user` SET userStatus =" + statut + " WHERE id = ?";
+
+            PreparedStatement ps = MDB.getPS(query1);
+
+            ps.setInt(1, idUser);
+            affectedRow = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+
+        return affectedRow;
+    }
+
+    public static User ClientById(int clientId) {
+        User user = null;
+        try {
+
+            MDB.connect();
+            ResultSet rs;
+            String query = "SELECT * from user inner join address on address.id = ship_address_id   where userType = 0 and user.id = ?";
+            PreparedStatement ps = MDB.getPS(query);
+            ps.setInt(1, clientId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Address address = new Address(rs.getInt(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16));
+                user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), address, rs.getInt(6), rs.getString(7));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            MDB.disconnect();
+        }
+        return user;
+    }
+}

@@ -1,0 +1,1 @@
+ALTER TABLE isidrone.order ALTER isShipped SET default 0;

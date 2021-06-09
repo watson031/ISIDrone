@@ -1,0 +1,5 @@
+Pour tester inserer une commande qui ou le isShipped est a 1 :
+
+ update isidrone.order set isShipped = 1 where id = **id;
+
+**id : vous pouvez choisir le id de la commande 

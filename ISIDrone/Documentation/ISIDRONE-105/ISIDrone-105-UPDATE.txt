@@ -1,0 +1,5 @@
+Requete qui modifie l'email de l'admin : 
+
+UPDATE user SET email = 'admin@test-isi.com' where id = 2 ;
+UPDATE user SET ship_address_id = 1 where id = 2 ;
+UPDATE user SET userType = 1 where id = 2 ;

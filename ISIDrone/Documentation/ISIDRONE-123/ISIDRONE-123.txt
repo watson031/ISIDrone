@@ -1,0 +1,13 @@
+Pour tester veuillez inserez les requêtes suivantes : 
+
+Pour tester : 
+
+1) Ajouter une commande dans la table order :
+
+   - INSERT INTO `isidrone`.`order`(`user_id`,`date`)VALUES(1,'2021-04-04');
+
+2) Ajouter une colonne dans la table order_info :
+	
+   - INSERT INTO order_info (`order_id`,`product_id`,`qty`,`price`)VALUES(1,1,2,98);
+   
+  

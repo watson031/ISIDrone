@@ -1,0 +1,12 @@
+
+Requete a executer
+
+-- add status for table user
+-----------------------------------------------
+ALTER TABLE user
+ADD userStatus varchar(20) DEFAULT 'ACTIVATED';
+-----------------------------------------------
+--update userStatus quand id > 0
+-----------------------------------------------
+update user set userStatus = 'ACTIVATED' where id > 0 ;
+-----------------------------------------------

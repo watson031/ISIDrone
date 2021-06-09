@@ -1,0 +1,32 @@
+
+Requete a executer
+-----------------------------------------------
+Creation de la nouvelle table
+-----------------------------------------------
+CREATE TABLE `provinces` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8_bin NOT NULL  ,
+
+  PRIMARY KEY (`id`) ,
+  UNIQUE KEY ( id ) 
+
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-----------------------------------------------
+ajout des donne pour la nouvelle table
+
+-----------------------------------------------
+
+INSERT INTO provinces ( name ) VALUES ('Alberta' ) ;
+INSERT INTO provinces ( name ) VALUES ('British Columbia' ) ;
+INSERT INTO provinces ( name ) VALUES ('Manitoba' ) ;
+INSERT INTO provinces ( name ) VALUES ('New Brunswick' ) ;
+INSERT INTO provinces ( name ) VALUES ('Newfoundland and Labrador' ) ;
+INSERT INTO provinces ( name ) VALUES ('Northwest Territories' ) ;
+INSERT INTO provinces ( name ) VALUES ('Nova Scotia' ) ;
+INSERT INTO provinces ( name ) VALUES ('Nunavut' ) ;
+INSERT INTO provinces ( name ) VALUES ('Ontario' ) ;
+INSERT INTO provinces ( name ) VALUES ('Prince Edward Island' ) ;
+INSERT INTO provinces ( name ) VALUES ('Quebec' ) ;
+INSERT INTO provinces ( name ) VALUES ('Saskatchewan' ) ;
+INSERT INTO provinces ( name ) VALUES ('Yukon') ; 

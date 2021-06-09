@@ -1,0 +1,20 @@
+use isidrone;
+
+CREATE TABLE `isidrone`.`clients_deactivations_descriptions` (
+  `id_client` INT UNSIGNED NOT NULL,
+  `id_deactivation_initiator` INT UNSIGNED NOT NULL,
+  `description` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id_client`, `id_deactivation_initiator`),
+  CONSTRAINT `fk_id_client`
+    FOREIGN KEY (`id_client`)
+    REFERENCES `isidrone`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_id_deactivation_initiator`
+    FOREIGN KEY (`id_client`)
+    REFERENCES `isidrone`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin;

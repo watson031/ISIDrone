@@ -1,0 +1,22 @@
+----------------------------------
+-- ISIDRONE-105 
+-- DESCRIPTION :
+-- 1. Ajout d'un champ userType dnas la table user
+-- 2. Creation d'un user admin dans la table user.
+
+----------------------------------
+USE `isidrone`;
+----------------------------------
+-- 1. Ajout d'un champ userType dnas la table user
+----------------------------------
+	ALTER TABLE user
+	ADD  userType int DEFAULT 0;
+
+----------------------------------
+-- 2. Creation d'un user admin dans la table user.
+-- password = Admin12*
+-- HASH = b1fd40174bab52a77614f773ce188cd60d447057
+----------------------------------
+	INSERT user (lastNAme,firstName,email,password,ship_address_id,userType)
+	VALUES ('Admin','admin','test-isi.com','b1fd40174bab52a77614f773ce188cd60d447057', 		'1', '1');
+

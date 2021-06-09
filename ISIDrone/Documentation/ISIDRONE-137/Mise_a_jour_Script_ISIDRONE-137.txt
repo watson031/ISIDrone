@@ -1,0 +1,26 @@
+
+DROP TABLE `isidrone`.`provinces`;
+
+CREATE TABLE `provinces` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8_bin NOT NULL  ,
+
+  PRIMARY KEY (`id`) ,
+  UNIQUE KEY ( id ) 
+
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO provinces ( name ) VALUES ('Alberta' ) ;
+INSERT INTO provinces ( name ) VALUES ('Colombie-Britannique' ) ;
+INSERT INTO provinces ( name ) VALUES ('ÃŽle-du-Prince-Ã‰douard' ) ;
+INSERT INTO provinces ( name ) VALUES ('Manitoba' ) ;
+INSERT INTO provinces ( name ) VALUES ('Nouveau-Brunswick' ) ;
+INSERT INTO provinces ( name ) VALUES ('Nouvelle-Ã‰cosse' ) ;
+INSERT INTO provinces ( name ) VALUES ('Nunavut' ) ;
+INSERT INTO provinces ( name ) VALUES ('Ontario' ) ;
+INSERT INTO provinces ( name ) VALUES ('QuÃ©bec' ) ;
+INSERT INTO provinces ( name ) VALUES ('Saskatchewan' ) ;
+INSERT INTO provinces ( name ) VALUES ('Terre-Neuve et Labrador' ) ;
+INSERT INTO provinces ( name ) VALUES ('Territoires du Nord-Ouest' ) ;
+INSERT INTO provinces ( name ) VALUES ('Yukon') ; 
+	

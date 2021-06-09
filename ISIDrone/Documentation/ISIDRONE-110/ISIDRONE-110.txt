@@ -1,0 +1,3 @@
+Requete pour ajouter un champ isShipped dans la table order:
+
+ALTER TABLE isidrone.order ADD isShipped boolean DEFAULT 1;
